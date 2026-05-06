@@ -5,6 +5,29 @@ export interface CampusBuilding {
   floors: CampusFloors;
 }
 
+const normalizeCampusName = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+const getCampusWords = (value: string) =>
+  normalizeCampusName(value).split(' ').filter((word) => word.length > 0);
+
+const campusNamesMatch = (a: string, b: string) => {
+  const normalizedA = normalizeCampusName(a);
+  const normalizedB = normalizeCampusName(b);
+  if (normalizedA === normalizedB) return true;
+  if (normalizedA.includes(normalizedB) || normalizedB.includes(normalizedA)) return true;
+  const wordsA = getCampusWords(normalizedA);
+  const wordsB = getCampusWords(normalizedB);
+  const sharedWords = wordsA.filter((word) => word.length > 2 && wordsB.includes(word));
+  return sharedWords.length > 0;
+};
+
+export const findCampusDataEntry = (buildingName: string): CampusBuilding | undefined =>
+  campusData.find((entry) => campusNamesMatch(entry.building, buildingName));
+
 export const campusData: CampusBuilding[] = [
   {
     building: "Library",

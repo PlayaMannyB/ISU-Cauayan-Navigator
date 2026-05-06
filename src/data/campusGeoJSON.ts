@@ -1,3 +1,5 @@
+import { campusData } from './campusData';
+
 // Real ISU Cauayan campus GeoJSON data
 export const CAMPUS_GEOJSON: any = {
   type: 'FeatureCollection',
@@ -65,7 +67,7 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Clinic',
       category: 'Health',
-      rooms: ['Reception', 'Treatment Room']
+      rooms: ['Reception', 'Treatment Room','Dentist Room']
     },
     geometry: {
       type: 'Polygon',
@@ -86,7 +88,7 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Administration Building',
       category: 'Administrative',
-      rooms: ["President's Office", 'Registrar', 'Cashier', 'HR Office']
+      rooms: ["President's Office", 'Registrar', 'Cashier', 'HR Office','Guidance Office','Accounting Office','SIAS Office']
     },
     geometry: {
       type: 'Polygon',
@@ -436,7 +438,7 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Canteen',
       category: 'Food',
-      rooms: ['Main Hall', 'Snack Bar']
+      rooms: ['Main Hall', 'Table Area']
     },
     geometry: {
       type: 'Polygon',
@@ -625,7 +627,7 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Chapel',
       category: 'Spiritual',
-      rooms: ['Main Hall']
+      rooms: ['Prayer Hall']
     },
     geometry: {
       type: 'Polygon',
@@ -752,11 +754,58 @@ export interface RoomEntry {
   category: string;
 }
 
-export const ROOMS_LIST: RoomEntry[] = BUILDINGS_LIST.flatMap((b) =>
-b.rooms.map((room) => ({
-  buildingId: b.id,
-  buildingName: b.name,
-  room,
-  category: b.category
-}))
+const normalizeName = (value: string) =>
+  value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+
+const CAMPUS_DATA_BUILDING_ID: Record<string, number> = {
+  [normalizeName('Library')]: 5,
+  [normalizeName('Ramon Magsaysay')]: 7,
+  [normalizeName('College of Computing Studies, Information and Communication Technology')]: 9
+};
+
+const getCampusDataBuildingId = (campusName: string): number | undefined =>
+  CAMPUS_DATA_BUILDING_ID[normalizeName(campusName)];
+
+const mergeCampusRooms = (building: BuildingEntry): BuildingEntry => {
+  const campusEntry = campusData.find(
+    (entry) => getCampusDataBuildingId(entry.building) === building.id
+  );
+  if (!campusEntry) return building;
+  return {
+    ...building,
+    rooms: Object.values(campusEntry.floors).flat()
+  };
+};
+
+const syntheticCampusBuildings: BuildingEntry[] = campusData.flatMap((entry, index) => {
+  const existingId = getCampusDataBuildingId(entry.building);
+  if (existingId) return [];
+  return [
+    {
+      id: 1000 + index,
+      name: entry.building,
+      category: 'Academic',
+      rooms: Object.values(entry.floors).flat()
+    }
+  ];
+});
+
+export const SEARCH_BUILDINGS_LIST: BuildingEntry[] = [
+  ...BUILDINGS_LIST.map(mergeCampusRooms),
+  ...syntheticCampusBuildings
+];
+
+export const ROOMS_LIST: RoomEntry[] = SEARCH_BUILDINGS_LIST.flatMap((b) =>
+  b.rooms.map((room) => ({
+    buildingId: b.id,
+    buildingName: b.name,
+    room,
+    category: b.category
+  }))
+).filter(
+  (entry, index, list) =>
+    index ===
+      list.findIndex(
+        (other) => other.buildingId === entry.buildingId && other.room === entry.room
+      )
 );

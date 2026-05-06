@@ -6,7 +6,7 @@ import {
   ChevronLeft,
   Building } from
 'lucide-react';
-import { ROOMS_LIST, BUILDINGS_LIST } from '../data/campusGeoJSON';
+import { ROOMS_LIST, SEARCH_BUILDINGS_LIST } from '../data/campusGeoJSON';
 interface ResultItem {
   id: string;
   title: string;
@@ -26,7 +26,7 @@ export function Search() {
   const results: ResultItem[] = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) {
-      return BUILDINGS_LIST.slice(0, 8).map((b) => ({
+      return SEARCH_BUILDINGS_LIST.slice(0, 8).map((b) => ({
         id: `b-${b.id}`,
         title: b.name,
         type: 'building' as const,
@@ -45,7 +45,7 @@ export function Search() {
       type: 'room' as const,
       buildingId: r.buildingId
     }));
-    const buildingMatches: ResultItem[] = BUILDINGS_LIST.filter((b) =>
+    const buildingMatches: ResultItem[] = SEARCH_BUILDINGS_LIST.filter((b) =>
     b.name.toLowerCase().includes(q)
     ).
     slice(0, 4).
