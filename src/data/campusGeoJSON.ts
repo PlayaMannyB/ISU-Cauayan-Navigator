@@ -21,7 +21,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 1,
     properties: {
-      name: 'New CBM Building',
+      name: 'New College of Business Management Building',
       category: 'Academic',
       rooms: ['Room 101', 'Room 102', "Dean's Office", 'Faculty Room']
     },
@@ -155,7 +155,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 7,
     properties: {
-      name: 'CCSICT / Ramon Magsasay',
+      name: 'College of Computing Studies, Information and Communication Technology / Ramon Magsasay',
       category: 'Academic',
       rooms: ['Room 301', 'Room 302', 'Computer Lab']
     },
@@ -176,7 +176,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 8,
     properties: {
-      name: 'CCSICT SBO Office',
+      name: 'College of Computing Studies, Information and Communication Technology SBO Office',
       category: 'Office',
       rooms: ['SBO Lounge']
     },
@@ -197,7 +197,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 9,
     properties: {
-      name: 'CCSICT',
+      name: 'College of Computing Studies, Information and Communication Technology',
       category: 'Academic',
       rooms: [
       'Room 301',
@@ -224,7 +224,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 10,
     properties: {
-      name: 'Polytechnic Faculty',
+      name: 'Bachelor of Science in Industrial Technology Faculty',
       category: 'Academic',
       rooms: ['Faculty Lounge', 'Office']
     },
@@ -245,7 +245,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 11,
     properties: {
-      name: 'Polytechnic Room A',
+      name: 'Bachelor of Science in Industrial Technology Room A',
       category: 'Academic',
       rooms: ['Workshop A']
     },
@@ -266,7 +266,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 12,
     properties: {
-      name: 'Polytechnic Room B',
+      name: 'Bachelor of Science in Industrial Technology Room B',
       category: 'Academic',
       rooms: ['Workshop B']
     },
@@ -308,7 +308,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 14,
     properties: {
-      name: 'Polytechnic Workshop',
+      name: 'Bachelor of Science in Industrial Technology Workshop',
       category: 'Academic',
       rooms: ['Main Workshop']
     },
@@ -392,7 +392,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 18,
     properties: {
-      name: 'CBM Building',
+      name: 'College of Business Management Building',
       category: 'Academic',
       rooms: ['Room 101', 'Room 102', "Dean's Office", 'Faculty Room']
     },
@@ -476,7 +476,7 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 22,
     properties: {
-      name: 'Polytechnic Room C',
+      name: 'Bachelor of Science in Industrial Technology Room C',
       category: 'Academic',
       rooms: ['Workshop C']
     },

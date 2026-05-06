@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Search, Layers } from 'lucide-react';
 import {
@@ -8,6 +8,7 @@ import {
   BuildingEntry } from
 '../data/campusGeoJSON';
 import { BuildingDetailPanel } from '../components/BuildingDetailPanel';
+import { MapController } from '../components/MapController';
 import { useTheme } from '../context/ThemeContext';
 import L from 'leaflet';
 const CENTER: [number, number] = [16.9376, 121.7644];
@@ -22,25 +23,6 @@ function getFeatureCenter(feature: any): [number, number] {
     lat += c[1];
   });
   return [lat / coords.length, lng / coords.length];
-}
-function MapController({
-  target,
-  zoom
-
-
-
-}: {target: [number, number];zoom: number;}) {
-  const map = useMap();
-  useEffect(() => {
-    const t = setTimeout(() => {
-      map.flyTo(target, zoom, {
-        duration: 1.6,
-        easeLinearity: 0.25
-      });
-    }, 400);
-    return () => clearTimeout(t);
-  }, [map, target, zoom]);
-  return null;
 }
 export function MapView() {
   const navigate = useNavigate();
