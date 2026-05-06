@@ -61,11 +61,11 @@ export function BuildingDetailPanel({
 
           <div className="flex-1 overflow-y-auto pr-2">
             <h3 className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wider flex items-center">
-              <Info className="w-3 h-3 mr-1" /> Available Rooms
+              <Info className="w-3 h-3 mr-1" /> Site
             </h3>
             {rooms.length === 0 ?
             <p className="text-xs text-gray-400 dark:text-gray-500 italic">
-                No rooms registered.
+                No site details available.
               </p> :
 
             <ul className="space-y-1.5">

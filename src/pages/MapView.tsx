@@ -7,6 +7,7 @@ import {
   BUILDINGS_LIST,
   BuildingEntry } from
 '../data/campusGeoJSON';
+import { campusData } from '../data/campusData';
 import { BuildingDetailPanel } from '../components/BuildingDetailPanel';
 import { MapController } from '../components/MapController';
 import { useTheme } from '../context/ThemeContext';
@@ -44,6 +45,34 @@ export function MapView() {
     () => BUILDINGS_LIST.find((b) => b.id === selectedId),
     [selectedId]
   );
+  const selectedRooms = useMemo(() => {
+    if (!selectedEntry) return [];
+    const normalize = (value: string) =>
+      value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    const fuzzyMatch = (source: string, target: string) => {
+      const normalizedSource = normalize(source);
+      const normalizedTarget = normalize(target);
+      if (
+        normalizedSource.includes(normalizedTarget) ||
+        normalizedTarget.includes(normalizedSource)
+      ) {
+        return true;
+      }
+      return normalizedSource
+        .split(' ')
+        .filter((word) => word.length > 2)
+        .every((word) => normalizedTarget.includes(word));
+    };
+    const matches = campusData.filter((entry) =>
+      fuzzyMatch(selectedEntry.name, entry.building)
+    );
+    if (matches.length > 0) {
+      return Array.from(
+        new Set(matches.flatMap((entry) => Object.values(entry.floors).flat()))
+      );
+    }
+    return selectedEntry.rooms;
+  }, [selectedEntry]);
   const flyTarget: [number, number] = selectedFeature ?
   getFeatureCenter(selectedFeature) :
   CENTER;
@@ -152,7 +181,7 @@ export function MapView() {
         onClose={() => setPanelOpen(false)}
         name={selectedEntry?.name || ''}
         category={selectedEntry?.category || ''}
-        rooms={selectedEntry?.rooms || []} />
+        rooms={selectedRooms} />
       
     </div>);
 
