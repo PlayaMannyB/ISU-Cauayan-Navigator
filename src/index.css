@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  background-color: #f3f4f6; /* Soft neutral background for desktop */
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(4, 106, 56, 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(4, 106, 56, 0.4);
+}
+/* Leaflet overrides for glassmorphism feel */
+.leaflet-control-container .leaflet-control {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: none;
+  overflow: hidden;
+}
+.leaflet-bar a {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #046A38 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+}
+.leaflet-bar a:hover {
+  background-color: #f8fafc !important;
+}
+/* Custom Leaflet tooltip styling */
+.isu-tooltip {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(4, 106, 56, 0.2) !important;
+  color: #046A38 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 4px 8px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+.isu-tooltip::before {
+  border-top-color: rgba(255, 255, 255, 0.95) !important;
+}
+.dark .isu-tooltip {
+  background: rgba(14, 21, 18, 0.95) !important;
+  border-color: rgba(0, 255, 127, 0.4) !important;
+  color: #00FF7F !important;
+}
+.dark .isu-tooltip::before {
+  border-top-color: rgba(14, 21, 18, 0.95) !important;
+}
+.dark .leaflet-bar a {
+  background-color: rgba(22, 36, 32, 0.9) !important;
+  color: #00FF7F !important;
+  border-bottom-color: rgba(0, 255, 127, 0.15) !important;
+}
+.dark .leaflet-bar a:hover {
+  background-color: rgba(14, 21, 18, 0.95) !important;
+}
+.dark .leaflet-control-attribution {
+  background: rgba(22, 36, 32, 0.85) !important;
+  color: #94a3b8 !important;
+}
+.dark .leaflet-control-attribution a {
+  color: #00FF7F !important;
+}
