@@ -737,14 +737,17 @@ export interface BuildingEntry {
   rooms: string[];
 }
 
-export const BUILDINGS_LIST: BuildingEntry[] = CAMPUS_GEOJSON.features.
-filter((f: any) => f.geometry.type === 'Polygon' && f.id).
-map((f: any) => ({
-  id: f.id,
-  name: f.properties.name,
-  category: f.properties.category || 'General',
-  rooms: f.properties.rooms || []
-}));
+const isStringArray = (value: unknown): value is string[] =>
+  Array.isArray(value) && value.every((v) => typeof v === 'string');
+
+export const BUILDINGS_LIST: BuildingEntry[] = CAMPUS_GEOJSON.features
+  .filter((f: any) => f.geometry.type === 'Polygon' && typeof f.id === 'number')
+  .map((f: any) => ({
+    id: f.id,
+    name: String(f.properties?.name ?? ''),
+    category: String(f.properties?.category ?? 'General'),
+    rooms: isStringArray(f.properties?.rooms) ? f.properties.rooms : []
+  }));
 
 // Flat list of every searchable room with its building
 export interface RoomEntry {
@@ -757,6 +760,7 @@ export interface RoomEntry {
 const normalizeName = (value: string) =>
   value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
+// Map campus building names to GeoJSON feature ids
 const CAMPUS_DATA_BUILDING_ID: Record<string, number> = {
   [normalizeName('Library')]: 5,
   [normalizeName('Ramon Magsaysay')]: 7,
@@ -809,3 +813,5 @@ export const ROOMS_LIST: RoomEntry[] = SEARCH_BUILDINGS_LIST.flatMap((b) =>
         (other) => other.buildingId === entry.buildingId && other.room === entry.room
       )
 );
+
+
