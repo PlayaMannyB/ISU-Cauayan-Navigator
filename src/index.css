@@ -79,3 +79,16 @@ body {
 .dark .leaflet-control-attribution a {
   color: #00FF7F !important;
 }
+/* Add this to the bottom of your CSS file */
+.road-layer {
+  stroke: #4a4a4a !important;   /* Solid asphalt color */
+  stroke-width: 10px !important; /* Thick width */
+  stroke-opacity: 1 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* Optional: Make it look better in Dark Mode */
+.dark .road-layer {
+  stroke: #64748b !important; /* Slightly lighter grey for dark mode contrast */
+}

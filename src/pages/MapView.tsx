@@ -55,21 +55,39 @@ export function MapView() {
   const styleFeature = (feature: any) => {
     const isSelected = feature.id === selectedId;
     const isLine = feature.geometry.type === 'LineString';
+
     if (isLine) {
+      const isMainRoad = feature.id === 35;
+
+      if (isMainRoad) {
+        // Main road (id 35): slim white dashed
+        return {
+          color: '#ffffff',
+          weight: 6,
+          opacity: 1,
+          dashArray: '3 10',
+          lineCap: 'round' as any
+        };
+      }
+
+      // Campus LineString (id 1): green solid
       return {
         color: '#32CD32',
-        weight: 4,
-        opacity: 0.7,
-        dashArray: '4 6'
+        weight: 10,
+        opacity: 1,
+        lineCap: 'round' as any
       };
     }
+
+    // Polygons
     return {
       color: isSelected ? '#FFD700' : '#32CD32',
       fillColor: '#32CD32',
       fillOpacity: isSelected ? 0.7 : 0.5,
-      weight: isSelected ? 4 : 4
+      weight: 4
     };
   };
+
   const onEachFeature = (feature: any, layer: L.Layer) => {
     if (!feature.properties || !feature.properties.name) return;
     const name = feature.properties.name;
@@ -143,7 +161,9 @@ export function MapView() {
           <GeoJSON
             key={`geojson-${selectedId}-${isDark}`}
             data={CAMPUS_GEOJSON}
-            style={styleFeature as any}
+            // react-leaflet typings are strict; cast to keep build green without changing behavior
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {...({ style: styleFeature } as any)}
             onEachFeature={onEachFeature} />
           
 

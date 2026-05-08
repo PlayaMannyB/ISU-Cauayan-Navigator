@@ -1,12 +1,19 @@
 import { campusData } from './campusData';
 
-// Real ISU Cauayan campus GeoJSON data
+const roadStyle = {
+  color: "#4a4a4a",   
+  weight: 10,         
+  opacity: 1,
+  lineJoin: "round" as const,
+  lineCap: "round" as const
+};
+
 export const CAMPUS_GEOJSON: any = {
   type: 'FeatureCollection',
   features: [
-  {
+    {
     type: 'Feature',
-    properties: { name: 'Campus Path' },
+    properties: { name: 'Campus' },
     geometry: {
       type: 'LineString',
       coordinates: [
@@ -375,7 +382,7 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'College of Education (Annex)',
       category: 'Academic',
-      rooms: ['Room 501', 'Room 502']
+      rooms: ['Room 101-A', 'Room 101-B', 'Room 103', 'Room OB104', 'Restroom', 'Room OB201', 'Room 202', 'Room 203', 'Room 204']
     },
     geometry: {
       type: 'Polygon',
@@ -522,7 +529,7 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'College of Criminal Justice Education (Block 1)',
       category: 'Academic',
-      rooms: ['Room 701']
+      rooms: ['Room 101', 'Room 102', 'Room 103', 'Room 104', 'Room 105', 'Room 106', 'Room 107', 'Room 108', 'Room 109', 'Room 110', 'Room 111', 'Room 112']
     },
     geometry: {
       type: 'Polygon',
@@ -725,8 +732,165 @@ export const CAMPUS_GEOJSON: any = {
 
 
     }
-  }]
-
+  },
+{
+      "type": 'Feature',
+      "id": 35,
+      "properties": {
+        "name": "Main Campus Road",
+        "type": "road" // Adding a 'type' lets you style all roads at once
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [121.7640267116733, 16.935646972053746],
+          [121.76407679872722, 16.935907170304617],
+           [
+            121.76413470231614,
+            16.93591896535429
+          ],
+          [
+            121.76419485332951,
+            16.935935113387345
+          ],
+          [
+            121.76424911262012,
+            16.93595966828238
+          ],
+          [
+            121.76429170639557,
+            16.93597852603638
+          ],
+          [
+            121.7643487502898,
+            16.93603221549712
+          ],
+          [
+            121.76437892950491,
+            16.93608055763852
+          ],
+          [
+            121.76440576923761,
+            16.936175252118076
+          ],
+          [
+            121.76444625637345,
+            16.936353020859656
+          ],
+          [
+            121.76451607136744,
+            16.93666060147102
+          ],
+          [
+            121.76457618286503,
+            16.936921113116185
+          ],
+          [
+            121.76464095389724,
+            16.937201428029113
+          ],
+          [
+            121.76470303366528,
+            16.937466441618497
+          ],
+          [
+            121.76501512302804,
+            16.938791387566752
+          ],
+          [
+            121.76521181868628,
+            16.939748222477846
+          ],
+          [
+            121.765291056774,
+            16.940043378283406
+          ],
+          [
+            121.76528492166415,
+            16.940127388015725
+          ],
+          [
+            121.76492975757145,
+            16.940228126731483
+          ],
+          [
+            121.76482949404226,
+            16.940182906049273
+          ],
+          [
+            121.76463115860139,
+            16.939607224349984
+          ],
+          [
+            121.76456216132448,
+            16.939404242701585
+          ],
+          [
+            121.76436451571266,
+            16.938953143855855
+          ],
+          [
+            121.76500775453661,
+            16.938783693052386
+          ],
+          [
+            121.76436479409699,
+            16.938951878975004
+          ],
+          [
+            121.76427937237662,
+            16.938583855241546
+          ],
+          [
+            121.7641686736564,
+            16.9380784510264
+          ],
+          [
+            121.76401032412639,
+            16.93735801440478
+          ],
+          [
+            121.76390007107977,
+            16.936866231892424
+          ],
+          [
+            121.76376436210302,
+            16.936234874655383
+          ],
+          [
+            121.76376218075922,
+            16.936154070439514
+          ],
+          [
+            121.76381528790643,
+            16.93602765909246
+          ],
+          [
+            121.76396678116748,
+            16.935920550495297
+          ],
+          [
+            121.7640161028184,
+            16.935914438971636
+          ],
+          [
+            121.76409306388643,
+            16.93623429757865
+          ],
+          [
+            121.76401581974397,
+            16.93591342657514
+          ],
+          [
+            121.76396043140687,
+            16.9359221752821
+          ],
+          [121.76389552041525, 16.93566974680307]
+        ]
+      }
+    }
+]
+  
 };
 
 // Flat list for search/autocomplete
@@ -764,7 +928,12 @@ const normalizeName = (value: string) =>
 const CAMPUS_DATA_BUILDING_ID: Record<string, number> = {
   [normalizeName('Library')]: 5,
   [normalizeName('Ramon Magsaysay')]: 7,
-  [normalizeName('College of Computing Studies, Information and Communication Technology')]: 9
+  [normalizeName('College of Computing Studies, Information and Communication Technology')]: 9,
+  [normalizeName('Student Center')]: 8,
+  [normalizeName('New College of Business Management Building')]: 1, 
+  [normalizeName('Old Building - College of Education')]: 19, 
+  [normalizeName('Old Building - College of Business Management')]: 18,
+  [normalizeName('Bachelor of Science in Industrial Technology Faculty')]: 10
 };
 
 const getCampusDataBuildingId = (campusName: string): number | undefined =>
