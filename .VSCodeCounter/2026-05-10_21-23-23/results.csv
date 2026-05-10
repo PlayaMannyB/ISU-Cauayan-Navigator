@@ -1,0 +1,26 @@
+"filename", "language", "TypeScript", "TypeScript JSX", "PostCSS", "comment", "blank", "total"
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\App.tsx", "TypeScript JSX", 0, 43, 0, 2, 6, 51
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\BottomNav.tsx", "TypeScript JSX", 0, 43, 0, 0, 3, 46
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\BuildingDetailPanel.tsx", "TypeScript JSX", 0, 78, 0, 0, 10, 88
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\Header.tsx", "TypeScript JSX", 0, 25, 0, 0, 5, 30
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\MapController.tsx", "TypeScript JSX", 0, 22, 0, 0, 7, 29
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\PhoneFrame.tsx", "TypeScript JSX", 0, 25, 0, 2, 2, 29
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\ShareCard.tsx", "TypeScript JSX", 0, 98, 0, 4, 11, 113
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\ThemeToggle.tsx", "TypeScript JSX", 0, 22, 0, 0, 4, 26
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\context\ThemeContext.tsx", "TypeScript JSX", 0, 43, 0, 0, 3, 46
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\data\campusCredit.ts", "TypeScript", 47, 0, 0, 0, 4, 51
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\data\campusData.ts", "TypeScript", 98, 0, 0, 0, 9, 107
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\data\campusGeoJSON.ts", "TypeScript", 922, 0, 0, 3, 86, 1011
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\data\isuMetadata.ts", "TypeScript", 11, 0, 0, 0, 0, 11
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\index.css", "PostCSS", 0, 0, 86, 5, 3, 94
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\index.tsx", "TypeScript JSX", 0, 11, 0, 0, 0, 11
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\pages\About.tsx", "TypeScript JSX", 0, 91, 0, 4, 8, 103
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\pages\Credit.tsx", "TypeScript JSX", 0, 65, 0, 0, 11, 76
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\pages\Dashboard.tsx", "TypeScript JSX", 0, 128, 0, 4, 10, 142
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\pages\EmergencyHotlines.tsx", "TypeScript JSX", 0, 72, 0, 1, 9, 82
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\pages\MapView.tsx", "TypeScript JSX", 0, 157, 0, 8, 21, 186
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\pages\Search.tsx", "TypeScript JSX", 0, 125, 0, 4, 12, 141
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\pages\Share.tsx", "TypeScript JSX", 0, 12, 0, 0, 3, 15
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\pages\StudentManual.tsx", "TypeScript JSX", 0, 21, 0, 0, 4, 25
+"c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\types\leaflet.d.ts", "TypeScript", 0, 0, 0, 0, 4, 4
+"Total", "-", 1078, 1081, 86, 37, 235, 2517

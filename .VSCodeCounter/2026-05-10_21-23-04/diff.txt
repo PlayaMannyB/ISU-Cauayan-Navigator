@@ -1,0 +1,39 @@
+Date : 2026-05-10 21:23:04
+Directory : c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\data
+Total : 11 files,  765 codes, -3 comments, 57 blanks, all 819 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| TypeScript     |          4 |      1,078 |          3 |         99 |      1,180 |
+| TypeScript JSX |          7 |       -313 |         -6 |        -42 |       -361 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                     | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                        |         11 |        765 |         -3 |         57 |        819 |
+| . (Files)                                                                                |          4 |      1,078 |          3 |         99 |      1,180 |
+| ..                                                                                       |          7 |       -313 |         -6 |        -42 |       -361 |
+| ..\components                                                                            |          7 |       -313 |         -6 |        -42 |       -361 |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                                 | language       | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\BottomNav.tsx           | TypeScript JSX |        -43 |          0 |         -3 |        -46 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\BuildingDetailPanel.tsx | TypeScript JSX |        -78 |          0 |        -10 |        -88 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\Header.tsx              | TypeScript JSX |        -25 |          0 |         -5 |        -30 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\MapController.tsx       | TypeScript JSX |        -22 |          0 |         -7 |        -29 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\PhoneFrame.tsx          | TypeScript JSX |        -25 |         -2 |         -2 |        -29 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\ShareCard.tsx           | TypeScript JSX |        -98 |         -4 |        -11 |       -113 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\components\ThemeToggle.tsx         | TypeScript JSX |        -22 |          0 |         -4 |        -26 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\data\campusCredit.ts               | TypeScript     |         47 |          0 |          4 |         51 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\data\campusData.ts                 | TypeScript     |         98 |          0 |          9 |        107 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\data\campusGeoJSON.ts              | TypeScript     |        922 |          3 |         86 |      1,011 |
+| c:\Users\Nitro 5\Documents\ISU NAVIGATION WEB APP\src\data\isuMetadata.ts                | TypeScript     |         11 |          0 |          0 |         11 |
+| Total                                                                                    |                |        765 |         -3 |         57 |        819 |
++------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

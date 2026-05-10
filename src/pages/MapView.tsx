@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Search, Layers } from 'lucide-react';
 import {
@@ -24,6 +24,22 @@ function getFeatureCenter(feature: any): [number, number] {
   });
   return [lat / coords.length, lng / coords.length];
 }
+function ResizeMap() {
+  const map = useMap();
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      map.invalidateSize();
+    }, 500);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [map]);
+
+  return null;
+}
+
 export function MapView() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -107,7 +123,7 @@ export function MapView() {
   };
   const tileUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
   return (
-    <div className="relative w-full h-full flex flex-col bg-gray-100 dark:bg-isu-charcoal">
+    <div className="relative w-full h-[100dvh] flex flex-col bg-gray-100 dark:bg-isu-charcoal">
       {/* Floating Header Actions */}
       <div className="absolute top-4 left-4 right-4 z-[1000] flex justify-between items-start pointer-events-none">
         <button
@@ -143,6 +159,9 @@ export function MapView() {
           center={CENTER}
           zoom={15}
           maxZoom={19}
+          zoomSnap={0.5}
+          wheelDebounceTime={100}
+          preferCanvas={true}
           zoomControl={false}
           className="w-full h-full"
           style={{
@@ -165,8 +184,8 @@ export function MapView() {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             {...({ style: styleFeature } as any)}
             onEachFeature={onEachFeature} />
-          
 
+          <ResizeMap />
           <MapController target={flyTarget} zoom={18} />
         </MapContainer>
       </div>
