@@ -40,9 +40,9 @@ export function Dashboard() {
     description: 'View the Student Manual PDF'
   },
   {
-    title: 'Emergency Locations',
+    title: 'Emergency Hotlines',
     icon: ShieldAlert,
-    path: '/map',
+    path: '/emergency-hotlines',
     primary: false,
     accent: 'text-red-500',
     bgAccent: 'bg-red-50 dark:bg-red-500/10'

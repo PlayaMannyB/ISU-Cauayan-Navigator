@@ -9,6 +9,7 @@ import { MapView } from './pages/MapView';
 import { About } from './pages/About';
 import { StudentManual } from './pages/StudentManual';
 import { Credit } from './pages/Credit';
+import { EmergencyHotlines } from './pages/EmergencyHotlines';
 
 function AppShell() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function AppShell() {
           <Route path="/about" element={<About />} />
           <Route path="/credit" element={<Credit />} />
           <Route path="/student-manual" element={<StudentManual />} />
+          <Route path="/emergency-hotlines" element={<EmergencyHotlines />} />
           <Route path="*" element={<Dashboard />} />
         </Routes>
 

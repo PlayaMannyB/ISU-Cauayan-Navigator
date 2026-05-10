@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Search, Layers } from 'lucide-react';
@@ -91,7 +91,6 @@ export function MapView() {
   const onEachFeature = (feature: any, layer: L.Layer) => {
     if (!feature.properties || !feature.properties.name) return;
     const name = feature.properties.name;
-    const category = feature.properties.category || '';
     layer.bindTooltip(name, {
       direction: 'top',
       offset: [0, -4],
@@ -139,6 +138,7 @@ export function MapView() {
       </div>
 
       <div className="flex-1 w-full relative z-0">
+
         <MapContainer
           center={CENTER}
           zoom={15}

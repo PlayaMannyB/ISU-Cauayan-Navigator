@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { ExternalLink, Share2, X } from 'lucide-react';
 
 const APP_URL = 'https://isu-cauayan-navigator.vercel.app/';
@@ -39,7 +39,7 @@ export function ShareCard() {
             <button
               type="button"
               onClick={openQr}
-              className="w-32 h-32 sm:w-80 sm:h-80 rounded-2xl overflow-hidden bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 flex-shrink-0"
+              className="w-40 h-40 sm:w-96 sm:h-96 rounded-2xl overflow-hidden bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 flex-shrink-0"
               aria-label="Fullscreen QR code"
             >
               <img src={QR_SRC} alt="ISU Cauayan Navigator QR code" className="w-full h-full object-cover" />
