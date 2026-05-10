@@ -30,7 +30,7 @@ export function ShareCard() {
       </div>
 
       <div className="mt-4 flex items-center gap-4">
-        <div className="w-40 h-40 rounded-2xl overflow-hidden bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 flex-shrink-0">
+        <div className="w-80 h-80 rounded-2xl overflow-hidden bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 flex-shrink-0">
           <img
             src="/ISU%20Cauayan%20Navigator.png"
             alt="ISU Cauayan Navigator QR code"
