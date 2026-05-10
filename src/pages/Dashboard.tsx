@@ -1,15 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Search,
   Map as MapIcon,
-  Building2,
-  Utensils,
   ShieldAlert,
   Info,
   ChevronRight,
   Sparkles } from
 'lucide-react';
+import { ShareCard } from '../components/ShareCard';
 import { Header } from '../components/Header';
 import { ISU_INFO } from '../data/isuMetadata';
 export function Dashboard() {
@@ -31,12 +30,8 @@ export function Dashboard() {
     primary: true,
     description: 'Explore the live campus GeoJSON'
   },
-  {
-    title: 'Buildings (Academic & Admin)',
-    icon: Building2,
-    path: '/search',
-    primary: false
-  },
+  // Removed redundant "Buildings" button; use the Search button instead
+
   {
     title: 'Student Manual',
     icon: Info,
@@ -53,11 +48,12 @@ export function Dashboard() {
     bgAccent: 'bg-red-50 dark:bg-red-500/10'
   },
   {
-    title: 'About the App',
+    title: 'Credits',
     icon: Info,
-    path: '/about',
+    path: '/credit',
     primary: false
-  }];
+  },
+];
 
   return (
     <div className="flex flex-col h-full bg-gray-50 dark:bg-isu-charcoal">
@@ -97,38 +93,48 @@ export function Dashboard() {
           </span>
         </div>
 
-        {/* Navigation Cards */}
-        <div className="space-y-3 pb-6">
-          {menuItems.map((item, index) =>
-          <button
-            key={index}
-            onClick={() => navigate(item.path)}
-            className={`w-full text-left flex items-center justify-between p-4 rounded-2xl transition-all active:scale-[0.98] shadow-sm ${item.primary ? 'bg-isu-green dark:bg-isu-charcoal-light dark:border dark:border-isu-mint/40 text-white dark:text-isu-mint shadow-md min-h-[80px]' : `bg-white dark:bg-isu-charcoal-light text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-white/5 min-h-[64px] ${item.bgAccent || ''}`}`}>
-            
-              <div className="flex items-center space-x-4">
-                <div
-                className={`p-2.5 rounded-xl ${item.primary ? 'bg-white/15 text-white dark:text-isu-mint' : `bg-gray-50 dark:bg-white/5 ${item.accent || 'text-isu-green dark:text-isu-mint'}`}`}>
-                
-                  <item.icon className="w-6 h-6" strokeWidth={2} />
+        {/* Share Card + Navigation Cards */}
+        <div className="space-y-3">
+            <div className="space-y-3 pb-6">
+              <ShareCard />
+
+              {menuItems.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => navigate(item.path)}
+                className={`w-full text-left flex items-center justify-between p-4 rounded-2xl transition-all active:scale-[0.98] shadow-sm ${item.primary ? 'bg-isu-green dark:bg-isu-charcoal-light dark:border dark:border-isu-mint/40 text-white dark:text-isu-mint shadow-md min-h-[80px]' : `bg-white dark:bg-isu-charcoal-light text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-white/5 min-h-[64px] ${item.bgAccent || ''}`}`}
+              >
+                <div className="flex items-center space-x-4">
+                  <div
+                    className={`p-2.5 rounded-xl ${
+                      item.primary
+                        ? 'bg-white/15 text-white dark:text-isu-mint'
+                        : `bg-gray-50 dark:bg-white/5 ${item.accent || 'text-isu-green dark:text-isu-mint'}`
+                    }`}
+                  >
+                    <item.icon className="w-6 h-6" strokeWidth={2} />
+                  </div>
+
+                  <div>
+                    <h3 className={`font-semibold ${item.primary ? 'text-base' : 'text-sm'}`}>
+                      {item.title}
+                    </h3>
+                    {item.description && (
+                      <p className="text-white/80 dark:text-isu-mint/70 text-xs mt-0.5">
+                        {item.description}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <h3
-                  className={`font-semibold ${item.primary ? 'text-base' : 'text-sm'}`}>
-                  
-                    {item.title}
-                  </h3>
-                  {item.description &&
-                <p className="text-white/80 dark:text-isu-mint/70 text-xs mt-0.5">
-                      {item.description}
-                    </p>
-                }
-                </div>
-              </div>
-              <ChevronRight
-              className={`w-5 h-5 ${item.primary ? 'text-white/70 dark:text-isu-mint/70' : 'text-gray-300 dark:text-gray-600'}`} />
-            
-            </button>
-          )}
+
+                <ChevronRight
+                  className={`w-5 h-5 ${
+                    item.primary ? 'text-white/70 dark:text-isu-mint/70' : 'text-gray-300 dark:text-gray-600'
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>);

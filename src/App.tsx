@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { BottomNav } from './components/BottomNav';
 import { ThemeToggle } from './components/ThemeToggle';
@@ -8,6 +8,8 @@ import { Search } from './pages/Search';
 import { MapView } from './pages/MapView';
 import { About } from './pages/About';
 import { StudentManual } from './pages/StudentManual';
+import { Credit } from './pages/Credit';
+
 function AppShell() {
   const location = useLocation();
   // Float toggle slightly higher when on the map so it doesn't overlap the detail panel handle
@@ -20,6 +22,7 @@ function AppShell() {
           <Route path="/search" element={<Search />} />
           <Route path="/map" element={<MapView />} />
           <Route path="/about" element={<About />} />
+          <Route path="/credit" element={<Credit />} />
           <Route path="/student-manual" element={<StudentManual />} />
           <Route path="*" element={<Dashboard />} />
         </Routes>

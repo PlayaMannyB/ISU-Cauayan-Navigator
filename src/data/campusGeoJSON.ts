@@ -1,12 +1,6 @@
 import { campusData } from './campusData';
 
-const roadStyle = {
-  color: "#4a4a4a",   
-  weight: 10,         
-  opacity: 1,
-  lineJoin: "round" as const,
-  lineCap: "round" as const
-};
+
 
 export const CAMPUS_GEOJSON: any = {
   type: 'FeatureCollection',
