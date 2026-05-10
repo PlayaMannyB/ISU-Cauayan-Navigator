@@ -32,7 +32,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'New College of Business Management Building',
       category: 'Academic',
-      rooms: ['Room 101', 'Room 102', "Dean's Office", 'Faculty Room']
+      rooms: ['Room 101', 'Room 102', "Dean's Office", 'Faculty Room'],
+      imageUrl: '/ISU%20buildings/New%20CBM.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -53,7 +54,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'BIRDC',
       category: 'Research',
-      rooms: ['Main Hall', 'Lab A']
+      rooms: ['Main Hall', 'Lab A'],
+imageUrl: '/ISU%20buildings/BIRDC.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -74,7 +76,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Clinic',
       category: 'Health',
-      rooms: ['Reception', 'Treatment Room','Dentist Room']
+      rooms: ['Reception', 'Treatment Room','Dentist Room'],
+imageUrl: '/ISU%20buildings/Clinic.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -95,7 +98,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Administration Building',
       category: 'Administrative',
-      rooms: ["President's Office", 'Registrar', 'Cashier', 'HR Office','Guidance Office','Accounting Office','SIAS Office']
+      rooms: ["President's Office", 'Registrar', 'Cashier', 'HR Office','Guidance Office','Accounting Office','SIAS Office'],
+imageUrl: '/ISU%20buildings/Admin%20building.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -125,7 +129,7 @@ export const CAMPUS_GEOJSON: any = {
       name: 'Library',
       category: 'Academic',
       rooms: ['Circulation Desk', 'Reading Area', 'Computer Area', 'Book Shelves', 'Storage Room', 'Restricted Area'],
-      imageUrl: '/ISU buildings/Library.jpg'
+imageUrl: '/ISU%20buildings/Library.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -146,7 +150,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'College of Arts and Sciences / College of Law',
       category: 'Academic',
-      rooms: ['Room 201', 'Room 202', 'Law Library', 'Faculty Room']
+      rooms: ['Room 201', 'Room 202', 'Law Library', 'Faculty Room'],
+imageUrl: '/ISU%20buildings/College%20of%20Arts%20and%20Sciences_College%20of%20Law.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -168,6 +173,8 @@ export const CAMPUS_GEOJSON: any = {
       name: 'College of Computing Studies, Information and Communication Technology / Ramon Magsasay',
       category: 'Academic',
       rooms: ['Room 301', 'Room 302', 'Computer Lab']
+      ,
+imageUrl: '/ISU%20buildings/Ramon%20Magsaysay.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -214,7 +221,8 @@ export const CAMPUS_GEOJSON: any = {
       'Room 302',
       'Room 303',
       'Server Room',
-      "Dean's Office"]
+      "Dean's Office"],
+imageUrl: '/ISU%20buildings/College%20of%20Computing%20Studies%2C%20Information%20and%20Communication%20Technology.jpg'
 
     },
     geometry: {
@@ -236,7 +244,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Bachelor of Science in Industrial Technology Faculty',
       category: 'Academic',
-      rooms: ['Faculty Lounge', 'Office']
+      rooms: ['Faculty Lounge', 'Office'],
+imageUrl: '/ISU%20buildings/Bachelor%20of%20Science%20in%20Industrial%20Technology%20Faculty.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -258,6 +267,8 @@ export const CAMPUS_GEOJSON: any = {
       name: 'Bachelor of Science in Industrial Technology Room A',
       category: 'Academic',
       rooms: ['Room 101', 'Room 102','Restroom', 'Room 103', 'Room 104']
+      ,
+imageUrl: '/ISU%20buildings/Polytechnic.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -300,6 +311,8 @@ export const CAMPUS_GEOJSON: any = {
       name: 'Bamboo Room',
       category: 'Academic',
       rooms: ['Open Studio']
+      ,
+imageUrl: '/ISU%20buildings/Bamboo%20room.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -341,7 +354,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'College of Agriculture',
       category: 'Academic',
-      rooms: ['Room 401', 'Greenhouse Lab', 'Faculty']
+      rooms: ['Room 401', 'Greenhouse Lab', 'Faculty'],
+imageUrl: '/ISU%20buildings/Agriculture.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -362,7 +376,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Oval Ground',
       category: 'Recreation',
-      rooms: ['Track Field']
+      rooms: ['Track Field'],
+imageUrl: '/ISU%20buildings/Oval%20Grounds.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -383,7 +398,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'College of Education (Annex)',
       category: 'Academic',
-      rooms: ['Room 101-A', 'Room 101-B', 'Room 103', 'Room OB104', 'Restroom', 'Room OB201', 'Room 202', 'Room 203', 'Room 204']
+      rooms: ['Room 101-A', 'Room 101-B', 'Room 103', 'Room OB104', 'Restroom', 'Room OB201', 'Room 202', 'Room 203', 'Room 204'],
+imageUrl: '/ISU%20buildings/College%20of%20education.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -404,7 +420,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'College of Business Management Building',
       category: 'Academic',
-      rooms: ['Room 101', 'Room 102', "Dean's Office", 'Faculty Room']
+      rooms: ['Room 101', 'Room 102', "Dean's Office", 'Faculty Room'],
+imageUrl: '/ISU%20buildings/CBM%20building%20OLD.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -446,7 +463,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Canteen',
       category: 'Food',
-      rooms: ['Main Hall', 'Table Area']
+      rooms: ['Main Hall', 'Table Area'],
+      imageUrl: '/ISU%20buildings/Food%20court.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -467,7 +485,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Gymnasium',
       category: 'Recreation',
-      rooms: ['Court', 'Bleachers', 'Locker Room']
+      rooms: ['Court', 'Bleachers', 'Locker Room'],
+imageUrl: '/ISU%20buildings/Gymnasium.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -486,9 +505,10 @@ export const CAMPUS_GEOJSON: any = {
     type: 'Feature',
     id: 22,
     properties: {
-      name: 'Bachelor of Science in Industrial Technology Room C',
+      name: 'Food Laboratory',
       category: 'Academic',
-      rooms: ['Workshop C']
+      rooms: ['Workshop C'],
+imageUrl: '/ISU%20buildings/Food%20Laboratory%20(CBM).jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -509,7 +529,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Hostel',
       category: 'Residence',
-      rooms: ['Dorm A', 'Dorm B', 'Common Area']
+      rooms: ['Dorm A', 'Dorm B', 'Common Area'],
+imageUrl: '/ISU%20buildings/Hostel.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -530,7 +551,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'College of Criminal Justice Education (Block 1)',
       category: 'Academic',
-      rooms: ['Room 101', 'Room 102', 'Room 103', 'Room 104', 'Room 105', 'Room 106', 'Room 107', 'Room 108', 'Room 109', 'Room 110', 'Room 111', 'Room 112']
+      rooms: ['Room 101', 'Room 102', 'Room 103', 'Room 104', 'Room 105', 'Room 106', 'Room 107', 'Room 108', 'Room 109', 'Room 110', 'Room 111', 'Room 112'],
+imageUrl: '/ISU%20buildings/CCJE.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -552,6 +574,8 @@ export const CAMPUS_GEOJSON: any = {
       name: 'College of Criminal Justice Education (Block 2)',
       category: 'Academic',
       rooms: ['Room 702']
+      ,
+imageUrl: '/ISU%20buildings/CCJE2.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -635,7 +659,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Chapel',
       category: 'Spiritual',
-      rooms: ['Prayer Hall']
+      rooms: ['Prayer Hall'],
+imageUrl: '/ISU%20buildings/Chapel.jpg'
     },
     geometry: {
       type: 'Polygon',
