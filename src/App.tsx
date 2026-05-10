@@ -7,6 +7,7 @@ import { Dashboard } from './pages/Dashboard';
 import { Search } from './pages/Search';
 import { MapView } from './pages/MapView';
 import { About } from './pages/About';
+import { StudentManual } from './pages/StudentManual';
 function AppShell() {
   const location = useLocation();
   // Float toggle slightly higher when on the map so it doesn't overlap the detail panel handle
@@ -19,6 +20,7 @@ function AppShell() {
           <Route path="/search" element={<Search />} />
           <Route path="/map" element={<MapView />} />
           <Route path="/about" element={<About />} />
+          <Route path="/student-manual" element={<StudentManual />} />
           <Route path="*" element={<Dashboard />} />
         </Routes>
 

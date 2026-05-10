@@ -38,10 +38,11 @@ export function Dashboard() {
     primary: false
   },
   {
-    title: 'Canteens & Food Courts',
-    icon: Utensils,
-    path: '/map',
-    primary: false
+    title: 'Student Manual',
+    icon: Info,
+    path: '/student-manual',
+    primary: false,
+    description: 'View the Student Manual PDF'
   },
   {
     title: 'Emergency Locations',
