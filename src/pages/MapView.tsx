@@ -111,28 +111,27 @@ export function MapView() {
     [selectedId]
   );
 
-  const onEachFeature = useCallback(
-    (feature: any, layer: L.Layer) => {
-      if (!feature.properties || !feature.properties.name) return;
+  // Keep interaction handlers stable to avoid Leaflet layer churn during map dragging.
+  const onEachFeature = useCallback((feature: any, layer: L.Layer) => {
+    if (!feature.properties || !feature.properties.name) return;
 
-      const name = feature.properties.name;
-      layer.bindTooltip(name, {
-        direction: 'top',
-        offset: [0, -4],
-        className: 'isu-tooltip'
-      });
+    const name = feature.properties.name;
+    layer.bindTooltip(name, {
+      direction: 'top',
+      offset: [0, -4],
+      className: 'isu-tooltip'
+    });
 
-      layer.on({
-        click: () => {
-          if (feature.id) {
-            setSelectedId(feature.id);
-            setPanelOpen(true);
-          }
+    layer.on({
+      click: () => {
+        if (feature.id) {
+          setSelectedId(feature.id);
+          setPanelOpen(true);
         }
-      });
-    },
-    [setSelectedId]
-  );
+      }
+    });
+  }, []);
+
 
 
   const tileUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
@@ -176,28 +175,17 @@ export function MapView() {
           preferCanvas={true}
           zoomControl={false}
           className="w-full h-full"
-          // Optimization: prevent repeated size recalcs during drag
+          // Prevent rerender/redraw side effects while interacting
           trackResize={false}
-          // Optimization: smooth inertia-based panning
-          inertia={true}
-          // Optimization: smooth inertia-based panning
-          // Use the requested values for movement smoothing.
-          // (If it causes flashing again, revert these two.)
-          // Note: react-leaflet typings vary, so we pass these as any.
+          // Revert motion smoothing to avoid drag flashes
+          inertia={false}
 
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          {...({ easeLinearity: 0.1, inertiaResistance: 3000 } as any)}
+          // Hardware accel hints
 
 
-          // Optimization: hardware acceleration for animations
           markerZoomAnimation={true}
           transform3DLimit={100}
-
           style={{ background: isDark ? '#0E1512' : '#e5e7eb' }}
-
-
-          // IMPORTANT: keep MapContainer stable (avoid remounting during interactions)
-          key={"map"}
         >
           <TileLayer attribution="" url={tileUrl} maxZoom={19} maxNativeZoom={18} />
 
