@@ -42,14 +42,26 @@ export function ShareCard() {
             App link
           </p>
           <p className="text-xs text-gray-600 dark:text-gray-300 break-all mt-1">{APP_URL}</p>
-          <a
-            href={APP_URL}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            type="button"
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(APP_URL);
+              } catch {
+                // Fallback for browsers where clipboard write may be blocked
+                const el = document.createElement('textarea');
+                el.value = APP_URL;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+              }
+              window.open(APP_URL, '_blank', 'noreferrer');
+            }}
             className="mt-2 inline-flex items-center text-xs font-semibold text-isu-green dark:text-isu-mint hover:underline"
           >
-            Copy / open link
-          </a>
+            Copy link
+          </button>
         </div>
       </div>
     </div>
