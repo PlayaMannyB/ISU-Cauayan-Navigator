@@ -124,7 +124,8 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Library',
       category: 'Academic',
-      rooms: ['Main Reading Hall', 'Reference Section', 'E-Library']
+      rooms: ['Circulation Desk', 'Reading Area', 'Computer Area', 'Book Shelves', 'Storage Room', 'Restricted Area'],
+      imageUrl: '/ISU buildings/Library.jpg'
     },
     geometry: {
       type: 'Polygon',
@@ -256,7 +257,7 @@ export const CAMPUS_GEOJSON: any = {
     properties: {
       name: 'Bachelor of Science in Industrial Technology Room A',
       category: 'Academic',
-      rooms: ['Workshop A']
+      rooms: ['Room 101', 'Room 102','Restroom', 'Room 103', 'Room 104']
     },
     geometry: {
       type: 'Polygon',
@@ -899,6 +900,7 @@ export interface BuildingEntry {
   name: string;
   category: string;
   rooms: string[];
+  imageUrl?: string;
 }
 
 const isStringArray = (value: unknown): value is string[] =>
@@ -908,9 +910,10 @@ export const BUILDINGS_LIST: BuildingEntry[] = CAMPUS_GEOJSON.features
   .filter((f: any) => f.geometry.type === 'Polygon' && typeof f.id === 'number')
   .map((f: any) => ({
     id: f.id,
-    name: String(f.properties?.name ?? ''),
+      name: String(f.properties?.name ?? ''),
     category: String(f.properties?.category ?? 'General'),
-    rooms: isStringArray(f.properties?.rooms) ? f.properties.rooms : []
+    rooms: isStringArray(f.properties?.rooms) ? f.properties.rooms : [],
+    imageUrl: typeof f.properties?.imageUrl === 'string' ? f.properties.imageUrl : undefined
   }));
 
 // Flat list of every searchable room with its building
@@ -931,9 +934,11 @@ const CAMPUS_DATA_BUILDING_ID: Record<string, number> = {
   [normalizeName('College of Computing Studies, Information and Communication Technology')]: 9,
   [normalizeName('Student Center')]: 8,
   [normalizeName('New College of Business Management Building')]: 1, 
-  [normalizeName('Old Building - College of Education')]: 19, 
+  [normalizeName('Old Building - College of Education')]: 17, 
   [normalizeName('Old Building - College of Business Management')]: 18,
-  [normalizeName('Bachelor of Science in Industrial Technology Faculty')]: 10
+  [normalizeName('Bachelor of Science in Industrial Technology Faculty')]: 10,
+  [normalizeName('New Building - College of Education')]: 19,
+  [normalizeName('College of Arts and Sciences / College of Law')]: 6
 };
 
 const getCampusDataBuildingId = (campusName: string): number | undefined =>

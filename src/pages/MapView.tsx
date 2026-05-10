@@ -176,7 +176,9 @@ export function MapView() {
         onClose={() => setPanelOpen(false)}
         name={selectedEntry?.name || ''}
         category={selectedEntry?.category || ''}
-        rooms={selectedRooms} />
+        rooms={selectedRooms}
+        imageUrl={selectedFeature?.properties?.imageUrl}
+      />
       
     </div>);
 

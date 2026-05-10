@@ -88,6 +88,19 @@ export const campusData: CampusBuilding[] = [
     floors: {
       "Ground Floor": ["Faculty Lounge", "Office", "Site"]
     }
+  },
+  {
+    building:"College of Arts and Sciences / College of Law",
+floors: {
+  "1st Floor": ["Room 101", "Room 102", "Faculty", "College of Law Office"],
+  "2nd Floor": ["Room 201", "Room 202", "Room 203"]
   }
+  },
+  {
+    building: "New Building - College of Education",
+    floors: {
+      "1st Floor": ["English room 101", "English room 102", "Dean's Office","Math room", "Filipino room", "English room 103", "Restroom"],
+      "2nd Floor": ["Faculty Room"]
+    }}
 ];
 
