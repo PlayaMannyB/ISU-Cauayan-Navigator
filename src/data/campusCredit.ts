@@ -29,16 +29,16 @@ export const APP_CREDIT: CreditPageData = {
     'Leaflet.js: To power the interactive geospatial mapping engine.\n\n' +
     'The Project Team\n' +
     'Manuel Babaran IV – Lead Developer & Systems Architect\n\n' +
-    'Aira Labog Escartin – Project Manager & Group Lead\n\n' +
+    'Aira Labog Escartin – Documentation\n\n' +
     'Aldine Domdom – Data Resource Coordinator\n\n' +
     'Raymond Ribao – Site Surveyor & Documentation\n\n' +
     'Reynier Abad – Quality Assurance & Testing\n\n' +
     'Prof. Sherryl Che – Instructor / Adviser',
   people: [
     { name: 'Manuel Babaran IV', role: 'Lead Developer & Systems Architect' },
-    { name: 'Aira Labog Escartin', role: 'Project Manager & Group Lead' },
+    { name: 'Aira Labog Escartin', role: 'Documentation' },
     { name: 'Aldine Domdom', role: 'Data Resource Coordinator' },
-    { name: 'Raymond Ribao', role: 'Site Surveyor & Documentation' },
+    { name: 'Wala pa nga nii', role: 'Site Surveyor & Documentation' },
     { name: 'Reynier Abad', role: 'Quality Assurance & Testing' },
     { name: 'Prof. Sherryl Che', role: 'Instructor / Adviser' }
   ]
