@@ -63,7 +63,7 @@ export function Credit() {
         </div>
 
         <div className="bg-white dark:bg-isu-charcoal-light rounded-2xl p-5 shadow-sm dark:shadow-none border border-gray-100 dark:border-white/5 text-center">
-          <p className="text-xs text-gray-500 dark:text-gray-400">Final Requirement for HCI 1</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">Final Requirement for HCI 2</p>
           <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-1">
             Prof. Sherryl Che
           </p>
