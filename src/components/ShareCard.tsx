@@ -33,18 +33,17 @@ export function ShareCard() {
         </div>
 
         <div className="mt-4">
-          <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <div className="flex flex-col items-center gap-3">
             <button
               type="button"
               onClick={openQr}
-              className="w-40 h-40 sm:w-96 sm:h-96 rounded-lg overflow-hidden bg-white border border-gray-200 dark:border-white/10 flex-shrink-0 active:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-isu-gold dark:focus-visible:ring-isu-mint"
+              className="w-48 h-48 rounded-lg overflow-hidden bg-white border border-gray-200 dark:border-white/10 flex-shrink-0 active:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-isu-gold dark:focus-visible:ring-isu-mint"
               aria-label="Fullscreen QR code"
             >
               <img src={QR_SRC} alt="ISU Cauayan Navigator QR code" className="w-full h-full object-cover" />
             </button>
 
-            {/* On mobile: place link + copy button under the QR */}
-            <div className="w-full sm:w-auto min-w-0">
+            <div className="w-full min-w-0">
               <p className="text-[11px] uppercase tracking-wider font-semibold text-isu-gold dark:text-isu-mint">
                 App link
               </p>
