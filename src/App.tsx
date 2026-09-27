@@ -16,7 +16,7 @@ function AppShell() {
   // Float toggle slightly higher when on the map so it doesn't overlap the detail panel handle
   const isMap = location.pathname === '/map';
   return (
-    <div className="app-shell relative isolate h-[100dvh] flex flex-col bg-gray-100 dark:bg-black">
+    <div className="app-shell relative isolate min-h-screen h-[100dvh] overflow-hidden flex flex-col bg-gray-100 dark:bg-black">
       <div className="app-shell-backdrop" aria-hidden="true" />
       <div className="flex-1 relative z-10 overflow-hidden flex flex-col">
         <div
@@ -41,9 +41,7 @@ function AppShell() {
           </div>
         </div>
       </div>
-      <div className="relative z-10">
-        <BottomNav />
-      </div>
+      <BottomNav />
     </div>);
 
 }

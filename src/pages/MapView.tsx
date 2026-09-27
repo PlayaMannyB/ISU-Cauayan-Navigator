@@ -283,9 +283,10 @@ export function MapView() {
     );
   }, [userLocation]);
 
-  const flyTarget: [number, number] = selectedFeature
-    ? getFeatureCenter(selectedFeature)
-    : CENTER;
+  const flyTarget = useMemo<[number, number]>(
+    () => selectedFeature ? getFeatureCenter(selectedFeature) : CENTER,
+    [selectedFeature]
+  );
 
   // Keep references stable to avoid GeoJSON remount/re-render during map movement.
   const geoData = useMemo(() => CAMPUS_GEOJSON, []);
