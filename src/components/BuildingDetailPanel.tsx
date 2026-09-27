@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { X, MapPin, Info } from 'lucide-react';
 interface BuildingDetailPanelProps {
   isOpen: boolean;
@@ -16,14 +16,28 @@ export function BuildingDetailPanel({
   rooms,
   imageUrl = 'https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop'
 }: BuildingDetailPanelProps) {
+  const [imageOpen, setImageOpen] = useState(false);
+
+  useEffect(() => {
+    if (!imageOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setImageOpen(false);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [imageOpen]);
+
   return (
-    <div
-      role="dialog"
-      aria-modal="false"
-      aria-labelledby="building-panel-title"
-      aria-hidden={!isOpen}
-      className={`safe-area-bottom absolute bottom-0 left-0 right-0 h-[min(38%,22rem)] max-h-[90dvh] bg-white/90 dark:bg-isu-charcoal-light/90 backdrop-blur-md border-t border-white/40 dark:border-isu-mint/20 shadow-glass rounded-t-[2rem] transition-transform duration-300 ease-out will-change-transform z-[1000] ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}
-      >
+    <>
+      <div
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby="building-panel-title"
+        aria-hidden={!isOpen}
+        className={`safe-area-bottom absolute bottom-0 left-0 right-0 h-[min(38%,22rem)] max-h-[90dvh] bg-white/90 dark:bg-isu-charcoal-light/90 backdrop-blur-md border-t border-white/40 dark:border-isu-mint/20 shadow-glass rounded-t-[2rem] transition-transform duration-300 ease-out will-change-transform z-[1000] md:bottom-6 md:left-6 md:right-auto md:w-[calc(100%-3rem)] md:max-w-md md:h-[min(38%,22rem)] md:rounded-2xl md:border md:shadow-2xl ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}
+        >
       
       <div className="w-full flex justify-center pt-3 pb-1" aria-hidden="true">
         <div
@@ -41,7 +55,12 @@ export function BuildingDetailPanel({
       </button>
 
       <div className="flex h-[calc(100%-1.5rem)] min-h-0 p-4 pt-2 gap-4 sm:p-5">
-        <div className="w-2/5 h-full max-h-[160px] rounded-2xl overflow-hidden shadow-sm shrink-0 relative">
+        <button
+          type="button"
+          onClick={() => setImageOpen(true)}
+          aria-label={`View larger image of ${name}`}
+          className="w-2/5 h-full max-h-[160px] rounded-2xl overflow-hidden shadow-sm shrink-0 relative text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-isu-gold dark:focus-visible:ring-isu-mint"
+        >
           <img
             src={imageUrl}
             alt={name}
@@ -54,7 +73,7 @@ export function BuildingDetailPanel({
               {category}
             </span>
           </div>
-        </div>
+        </button>
 
         <div className="flex-1 flex flex-col min-w-0">
           <div className="inline-flex items-center space-x-1 text-[10px] font-semibold text-isu-gold dark:text-isu-mint mb-1 uppercase tracking-wider">
@@ -91,6 +110,34 @@ export function BuildingDetailPanel({
           </div>
         </div>
       </div>
-    </div>);
+      </div>
+
+      {imageOpen && (
+        <div
+          className="fixed inset-0 z-[2000] bg-black/70 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Larger image of ${name}`}
+          onClick={() => setImageOpen(false)}>
+          <div
+            className="relative max-w-[560px] w-full"
+            onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setImageOpen(false)}
+              className="absolute -top-3 -left-3 sm:-top-5 sm:-left-5 z-[2100] min-h-11 min-w-11 p-2.5 rounded-full bg-white dark:bg-isu-charcoal-light text-gray-800 dark:text-white shadow-lg active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-isu-gold dark:focus-visible:ring-isu-mint"
+              aria-label="Close building image fullscreen">
+              <X className="w-5 h-5 mx-auto" aria-hidden="true" />
+            </button>
+
+            <img
+              src={imageUrl}
+              alt={`${name} fullscreen`}
+              className="w-full h-auto max-h-[85dvh] object-contain rounded-lg bg-white p-4 shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
+    </>);
 
 }

@@ -16,24 +16,28 @@ function AppShell() {
   // Float toggle slightly higher when on the map so it doesn't overlap the detail panel handle
   const isMap = location.pathname === '/map';
   return (
-    <div className="h-[100dvh] flex flex-col bg-gray-50 dark:bg-isu-charcoal">
+    <div className="h-[100dvh] flex flex-col bg-gray-100 dark:bg-black">
       <div className="flex-1 relative overflow-hidden flex flex-col">
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/map" element={<MapView />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/credit" element={<Credit />} />
-          <Route path="/student-manual" element={<StudentManual />} />
-          <Route path="/emergency-hotlines" element={<EmergencyHotlines />} />
-          <Route path="*" element={<Dashboard />} />
-        </Routes>
-
-        {/* Persistent floating dark mode toggle */}
         <div
-          className={`absolute right-4 z-[1100] transition-all duration-300 ${isMap ? 'bottom-[42%]' : 'safe-area-bottom-offset'}`}>
-          
-          <ThemeToggle />
+          className={`relative flex-1 min-h-0 flex flex-col ${isMap
+            ? 'w-full'
+            : 'w-full max-w-[480px] mx-auto bg-gray-50 dark:bg-isu-charcoal shadow-xl sm:shadow-2xl'}`}>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/map" element={<MapView />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/credit" element={<Credit />} />
+            <Route path="/student-manual" element={<StudentManual />} />
+            <Route path="/emergency-hotlines" element={<EmergencyHotlines />} />
+            <Route path="*" element={<Dashboard />} />
+          </Routes>
+
+          {/* Persistent floating dark mode toggle */}
+          <div
+            className={`absolute right-4 z-[1100] transition-all duration-300 ${isMap ? 'bottom-[42%]' : 'safe-area-bottom-offset'}`}>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
       <BottomNav />
