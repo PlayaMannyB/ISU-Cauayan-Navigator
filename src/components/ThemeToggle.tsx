@@ -8,8 +8,8 @@ export function ThemeToggle({ className = '' }: {className?: string;}) {
     <button
       onClick={toggleTheme}
       aria-label="Toggle dark mode"
-      className={`relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg backdrop-blur-md
-        ${isDark ? 'bg-isu-charcoal-light/90 text-isu-mint shadow-glow-mint border border-isu-mint/30' : 'bg-white/90 text-isu-green border border-white/60'} ${className}`}>
+      className={`relative w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-isu-gold dark:focus-visible:ring-isu-mint backdrop-blur-md
+        ${isDark ? 'bg-isu-charcoal-light/90 text-isu-mint shadow-glow-mint border border-isu-mint/30' : 'bg-white/90 text-isu-green shadow-sm border border-white/60'} ${className}`}>
       
       <div className="relative w-5 h-5">
         <Sun

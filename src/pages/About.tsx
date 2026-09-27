@@ -70,14 +70,16 @@ export function About() {
 
         {/* Mandate / Vision / Mission */}
         {sections.map((s, idx) =>
-        <div
+        <article
           key={idx}
-          className="bg-white dark:bg-isu-charcoal-light rounded-2xl p-5 shadow-sm dark:shadow-none border border-gray-100 dark:border-white/5">
+          className={idx === 0
+            ? 'bg-white dark:bg-isu-charcoal-light rounded-lg p-5 border-l-4 border-isu-green dark:border-isu-mint'
+            : idx === 1
+            ? 'px-1 py-2 border-t border-gray-200 dark:border-white/10'
+            : 'px-1 pt-5 border-t-2 border-isu-gold dark:border-isu-mint'}>
           
-            <div className="flex items-center space-x-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-isu-green/10 dark:bg-isu-mint/15 flex items-center justify-center text-isu-green dark:text-isu-mint">
-                <s.icon className="w-5 h-5" strokeWidth={2.2} />
-              </div>
+            <div className="flex items-center space-x-2 mb-3">
+              <s.icon className="w-4 h-4 text-isu-green dark:text-isu-mint" strokeWidth={2.2} aria-hidden="true" />
               <h3 className="text-sm font-bold uppercase tracking-wider text-isu-green dark:text-isu-mint">
                 {s.label}
               </h3>
@@ -85,7 +87,7 @@ export function About() {
             <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
               {s.text}
             </p>
-          </div>
+          </article>
         )}
 
         {/* App Info */}

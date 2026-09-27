@@ -16,7 +16,7 @@ function AppShell() {
   // Float toggle slightly higher when on the map so it doesn't overlap the detail panel handle
   const isMap = location.pathname === '/map';
   return (
-    <div className="h-screen flex flex-col bg-gray-50 dark:bg-isu-charcoal">
+    <div className="h-[100dvh] flex flex-col bg-gray-50 dark:bg-isu-charcoal">
       <div className="flex-1 relative overflow-hidden flex flex-col">
         <Routes>
           <Route path="/" element={<Dashboard />} />
@@ -31,7 +31,7 @@ function AppShell() {
 
         {/* Persistent floating dark mode toggle */}
         <div
-          className={`absolute right-4 z-[1100] transition-all duration-300 ${isMap ? 'bottom-[42%]' : 'bottom-4'}`}>
+          className={`absolute right-4 z-[1100] transition-all duration-300 ${isMap ? 'bottom-[42%]' : 'safe-area-bottom-offset'}`}>
           
           <ThemeToggle />
         </div>

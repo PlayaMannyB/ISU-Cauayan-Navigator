@@ -31,18 +31,17 @@ export function MapController({ target, zoom, disableDragDuringFly = true }: Map
 
       // Re-enable drag slightly after the animation completes.
       window.setTimeout(() => {
-        // Re-enable only if it was enabled before and the prop is still on
-        if (disableDragDuringFly && draggingWasEnabled) {
-          map.dragging?.enable();
-        }
+        // `draggingWasEnabled` is a boolean const, so we only guard by its value.
+        if (disableDragDuringFly && draggingWasEnabled) map.dragging.enable();
       }, 1700);
+
 
     }, 400);
 
     return () => {
       window.clearTimeout(timer);
       // Only re-enable if we disabled it
-      if (disableDragDuringFly && draggingWasEnabled) map.dragging?.enable();
+      if (disableDragDuringFly && draggingWasEnabled) map.dragging.enable();
     };
   }, [map, target, zoom, disableDragDuringFly]);
 

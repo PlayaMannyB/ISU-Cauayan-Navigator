@@ -12,6 +12,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.safe-area-top {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+.safe-area-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+.safe-area-bottom-offset {
+  bottom: max(1rem, env(safe-area-inset-bottom));
+}
+.map-touch-surface {
+  touch-action: pan-x pan-y;
+}
+.campus-basemap {
+  filter: grayscale(0.65) saturate(0.55) brightness(1.05) contrast(0.92);
+}
+.dark .campus-basemap {
+  filter: grayscale(0.55) saturate(0.45) brightness(0.72) contrast(0.9);
+}
 /* Custom scrollbar for webkit */
 ::-webkit-scrollbar {
   width: 6px;
@@ -63,6 +81,36 @@ body {
 }
 .dark .isu-tooltip::before {
   border-top-color: rgba(14, 21, 18, 0.95) !important;
+}
+.campus-label {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(4, 106, 56, 0.35) !important;
+  color: #046A38 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  width: max-content !important;
+  max-width: 120px !important;
+  max-height: 30px !important;
+  padding: 3px 6px !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+  text-overflow: ellipsis !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+}
+.campus-label::before {
+  display: none !important;
+}
+.dark .campus-label {
+  background: rgba(22, 36, 32, 0.95) !important;
+  border-color: rgba(0, 255, 127, 0.35) !important;
+  color: #00FF7F !important;
 }
 .dark .leaflet-bar a {
   background-color: rgba(22, 36, 32, 0.9) !important;
