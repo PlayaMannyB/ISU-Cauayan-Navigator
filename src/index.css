@@ -39,6 +39,12 @@ body {
 .map-touch-surface {
   touch-action: pan-x pan-y;
 }
+.map-background-light {
+  background: #e5e7eb;
+}
+.map-background-dark {
+  background: #0e1512;
+}
 .campus-basemap {
   filter: grayscale(0.65) saturate(0.55) brightness(1.05) contrast(0.92);
 }

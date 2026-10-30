@@ -29,10 +29,7 @@ export function ThemeProvider({ children }: {children: React.ReactNode;}) {
       }}>
       
       <div
-        className={theme === 'dark' ? 'dark' : ''}
-        style={{
-          display: 'contents'
-        }}>
+        className={`${theme === 'dark' ? 'dark ' : ''}contents`}>
         
         {children}
       </div>

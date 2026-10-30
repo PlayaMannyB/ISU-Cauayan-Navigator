@@ -422,7 +422,6 @@ export function MapView() {
           wheelDebounceTime={100}
           preferCanvas={true}
           zoomControl={false}
-          className="map-touch-surface w-full h-full"
           // Prevent rerender/redraw side effects while interacting
           trackResize={false}
           // Revert motion smoothing to avoid drag flashes
@@ -433,7 +432,7 @@ export function MapView() {
 
           markerZoomAnimation={true}
           transform3DLimit={100}
-          style={{ background: isDark ? '#0E1512' : '#e5e7eb' }}
+          className={`map-touch-surface w-full h-full ${isDark ? 'map-background-dark' : 'map-background-light'}`}
         >
           <TileLayer
             attribution=""
@@ -473,4 +472,3 @@ export function MapView() {
     </div>
   );
 }
-
